@@ -16,20 +16,6 @@ Aplicación de consola desarrollada en C# que implementa el clásico juego **Tic
 
 ---
 
-## 🖼️ Vista previa
-
-### 🧩 Tablero del juego
-
-![Tablero](https://via.placeholder.com/600x300?text=Tablero+Tic+Tac+Toe)
-
-### 🎯 Jugada en progreso
-
-![Juego](https://via.placeholder.com/600x300?text=Juego+en+progreso)
-
-> Puedes reemplazar estas imágenes por capturas reales de tu programa.
-
----
-
 ## 🚀 Cómo ejecutar el proyecto
 
 ### 🔹 Requisitos
@@ -104,10 +90,10 @@ Fila (1-3): 2 | Columna (1-3): 3
 ## 🖼️ Vista previa
 
 ### Inicio del juego
-![Inicio](img/inicio.png)
+![Inicio](VideoJuegoGato/img/inicio.png)
 
 ### Juego en progreso
-![Medio](img/medio.png)
+![Medio](VideoJuegoGato/img/medio.png)
 
 ### Resultado final
-![Fin](img/fin.png)
+![Fin](VideoJuegoGato/img/fin.png)
