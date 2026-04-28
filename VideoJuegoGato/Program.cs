@@ -16,61 +16,74 @@ namespace VideoJuegoGato
 
         static void Main(string[] args)
         {
-            //Variable para verificar si el juego termino o no
-            bool terminado = false;
+            //Variable para preguntar si el usuario quiere jugar de nuevo
+            bool jugarDeNuevo;
 
-            //Llamamos a la función para dibujar el tablero
-            DibujarTablero();
-
-            //Ciclo principal del juego, se ejecuta mientras el juego no haya terminado
             do
             {
-                //turno del jugador 1
-                JugadorPosicion(1);//envia el valor de uno
+                // Reiniciar tablero
+                tablero = new int[3, 3];
 
-                //Dibujamos el tablero después de que el jugador 1 haga su movimiento
+                //Variable para verificar si el juego termino o no
+                bool terminado = false;
+
+                //Llamamos a la función para dibujar el tablero
                 DibujarTablero();
 
-                //Verificamos si el jugador 1 ha ganado
-                terminado = ComprobarGanador();
-                if (terminado == true)
+                //Ciclo principal del juego, se ejecuta mientras el juego no haya terminado
+                do
                 {
-                    Console.WriteLine("¡Jugador 1 gana!");
+                    //turno del jugador 1
+                    JugadorPosicion(1);//envia el valor de uno
 
-                }
-                else
-                {
+                    //Dibujamos el tablero después de que el jugador 1 haga su movimiento
+                    DibujarTablero();
 
-                    terminado = ComprobarEmpate();
+                    //Verificamos si el jugador 1 ha ganado
+                    terminado = ComprobarGanador();
                     if (terminado == true)
                     {
-                        Console.WriteLine("¡Empate!");
-                    }
+                        Console.WriteLine("¡Jugador 1 gana!");
 
-                    //Si el jugador uno no gano, ni hubi empate, entonces es el turno del jugador 2
+                    }
                     else
                     {
 
-                        //Turno del jugador 2
-                        JugadorPosicion(2);//envia el valor de dos
-
-                        //Dibujamos el tablero después de que el jugador 2 haga su movimiento
-                        DibujarTablero();
-
-                        //Verificamos si el jugador 2 ha ganado
-                        terminado = ComprobarGanador();
-
+                        terminado = ComprobarEmpate();
                         if (terminado == true)
                         {
-                            Console.WriteLine("¡Jugador 2 gana!");
+                            Console.WriteLine("¡Empate!");
                         }
 
+                        //Si el jugador uno no gano, ni hubi empate, entonces es el turno del jugador 2
+                        else
+                        {
+
+                            //Turno del jugador 2
+                            JugadorPosicion(2);//envia el valor de dos
+
+                            //Dibujamos el tablero después de que el jugador 2 haga su movimiento
+                            DibujarTablero();
+
+                            //Verificamos si el jugador 2 ha ganado
+                            terminado = ComprobarGanador();
+
+                            if (terminado == true)
+                            {
+                                Console.WriteLine("¡Jugador 2 gana!");
+                            }
+
+                        }
                     }
-                }
 
 
 
-            } while (terminado == false);//Se ejecuta mientras el juego no haya terminado. Repite hasta 3 en linea o empate(Tablero lleno)
+                } while (terminado == false);//Se ejecuta mientras el juego no haya terminado. Repite hasta 3 en linea o empate(Tablero lleno)
+
+                // Preguntar si quiere volver a jugar
+                Console.Write("\n¿Jugar otra vez? (s/n): ");
+                jugarDeNuevo = Console.ReadLine().ToLower() == "s";
+            } while (jugarDeNuevo);
 
         }//FIN MAIN
 
@@ -84,7 +97,7 @@ namespace VideoJuegoGato
             int columna = (Console.WindowWidth / 2) - 10;
 
             // Título
-            Console.SetCursorPosition(columna, fila-4);
+            Console.SetCursorPosition(columna, fila - 4);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("TIC TAC TOE");
             Console.ResetColor();
@@ -129,7 +142,7 @@ namespace VideoJuegoGato
             Console.SetCursorPosition(columna, fila + 6);
             Console.WriteLine("└───┴───┴───┘");
 
-            Console.SetCursorPosition(columna-10, fila + 8);
+            Console.SetCursorPosition(columna - 10, fila + 8);
             Console.WriteLine("Jugador 1 = X   |   Jugador 2 = O");
 
 
